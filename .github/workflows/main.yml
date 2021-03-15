@@ -12,7 +12,6 @@ jobs:
         with:
           environment-name: github-action-environment
           blueprint-id: Kubernetes-GCP-GKE
-          inputs-file: environments/dev-gcp.yaml
           delete-old-blueprint: false
           outputs-file: env-data.json
 env:
