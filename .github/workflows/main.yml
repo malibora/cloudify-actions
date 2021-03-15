@@ -13,7 +13,6 @@ jobs:
         with:
           # Command to run
           command: deployments create -b Kubernetes-GCP-GKE -i environments/dev-gcp.yaml github-action-deployment
-
           set-output: true
 env:
   CLOUDIFY_HOST: ${{ secrets.CLOUDIFY_HOST }}
