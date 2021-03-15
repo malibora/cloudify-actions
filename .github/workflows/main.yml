@@ -7,14 +7,15 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Create environment
-        uses: cloudify-cosmo/install-or-update-action@v1.1
+
+          
+      - name: Cloudify CLI
+        uses: cloudify-cosmo/cli-action@v1.1
         with:
-          environment-name: github-action-environment
-          blueprint-id: Kubernetes-GCP-GKE
-          inputs-file: environments/dev-gcp.yaml
-          delete-old-blueprint: false
-          outputs-file: env-data.json
+          # Command to run
+          command: deployments create -b Kubernetes-GCP-GKE -i environments/dev-gcp.yaml github-action-deployment
+
+          set-output: true
 env:
   CLOUDIFY_HOST: ${{ secrets.CLOUDIFY_HOST }}
   CLOUDIFY_USERNAME: ${{ secrets.CLOUDIFY_USERNAME }}
