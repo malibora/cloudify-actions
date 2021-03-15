@@ -10,14 +10,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Create environment
-        uses: cloudify-cosmo/install-or-update@v1.1
+        uses: cloudify-cosmo/install-or-update-action@v1.1
         with:
           environment-name: "github-action-environment"
           blueprint-id: "Kubernetes-GCP-GKE"
           inputs-file: "environments/dev-gcp.yaml"
           delete-old-blueprint: "true"
           outputs-file: env-data.json
-
-
-
-
+env:
+  CLOUDIFY_HOST: ${{ secrets.CLOUDIFY_HOST }}
+  CLOUDIFY_USERNAME: ${{ secrets.CLOUDIFY_USERNAME }}
+  CLOUDIFY_PASSWORD: ${{ secrets.CLOUDIFY_PASSWORD }}
+  CLOUDIFY_SSL: ${{ secrets.CLOUDIFY_SSL }}
+  CLOUDIFY_SSL_TRUST_ALL: ${{ secrets.CLOUDIFY_SSL_TRUST_ALL }}
