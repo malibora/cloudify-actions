@@ -7,7 +7,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
       - name: Cloudify CLI
         uses: cloudify-cosmo/cli-action@v1.1
         with:
