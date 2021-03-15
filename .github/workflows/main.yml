@@ -10,9 +10,10 @@ jobs:
       - name: Create environment
         uses: cloudify-cosmo/install-or-update-action@v1.1
         with:
-          blueprint-id: "Kubernetes-GCP-GKE"
-          inputs-file: "environments/dev-gcp.yaml"
-          delete-old-blueprint: "false"
+          environment-name: github-action-environment
+          blueprint-id: Kubernetes-GCP-GKE
+          inputs-file: environments/dev-gcp.yaml
+          delete-old-blueprint: false
           outputs-file: env-data.json
 env:
   CLOUDIFY_HOST: ${{ secrets.CLOUDIFY_HOST }}
